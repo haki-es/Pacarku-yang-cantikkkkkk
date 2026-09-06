@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -382,6 +381,9 @@ Kalo gitu sayang sekarang cerita sayang kenapaa, bolehhh ya sayang, ungkapin sem
       <div><button class="btn" id="c-submit">Kirim</button></div>
       <div class="status-note" id="c-status"></div>
     </div>
+    <div class="field-wrap" id="c-nextwrap" style="margin-top:1.6rem;">
+      <button class="btn ghost" id="c-next">Malam ini, pesan aku buat kamu</button>
+    </div>
   </div>
 
   <!-- Scene 3: msg1 -->
@@ -496,7 +498,7 @@ function updateDots(id){
   dotsEl.querySelectorAll("span").forEach(s=>{
     s.classList.toggle("active", s.dataset.scene === id);
   });
-});
+}
 
 /* ---------- scene manager ---------- */
 const scenes = ["flower","greet","curhat","msg1","msg2","msg3","msg4","msg5","final"];
@@ -599,22 +601,12 @@ document.getElementById("c-submit").addEventListener("click", async ()=>{
   const input = document.getElementById("c-input");
   const status = document.getElementById("c-status");
   const btn = document.getElementById("c-submit");
-
-  if(btn.disabled) return;
-
-  if(!input.value.trim()){
-    status.textContent = "isi dulu ya sayang 💗";
-    return;
-  }
-
   btn.disabled = true;
-
   await sendMessage("curhat", input.value, status);
-
-  setTimeout(()=>{
-    goTo("msg1");
-  }, 1000);
+  document.getElementById("c-nextwrap").classList.add("show");
 });
+
+document.getElementById("c-next").addEventListener("click", ()=> goTo("msg1"));
 
 /* ---------- continue links ---------- */
 document.querySelectorAll(".continue-link").forEach(el=>{
@@ -633,8 +625,3 @@ document.getElementById("f-submit").addEventListener("click", async ()=>{
 </script>
 </body>
 </html>
-```
-
-**Perubahan cuma di Scene 2:** tombol **“Malam ini, pesan aku buat kamu”** sudah dihapus, dan setelah pesan berhasil/tersimpan, otomatis `goTo("msg1")` setelah 1 detik.
-
-Satu catatan kecil: gue mempertahankan `sendMessage()` lainnya **100% seperti kode kamu**, jadi bagian Formspree dan scene lain nggak gue utak-atik.
