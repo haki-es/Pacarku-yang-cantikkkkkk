@@ -25,7 +25,7 @@
   }
   *{box-sizing:border-box;}
   html,body{
-    margin:0; padding:0; height:100%;
+    margin:0; padding:0; height:100%; height:100dvh;
     background:
       radial-gradient(circle at 18% 12%, var(--bg-3), transparent 45%),
       radial-gradient(circle at 88% 18%, var(--rose-light), transparent 40%),
@@ -38,15 +38,16 @@
   }
   #app{
     position:relative;
-    width:100vw; height:100vh;
+    width:100vw; height:100vh; height:100dvh;
     display:flex; align-items:center; justify-content:center;
   }
   .scene{
     position:absolute;
     inset:0;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
+    justify-content:safe center;
     text-align:center;
-    padding:8vh 7vw;
+    padding:max(13vh, 96px) 7vw 10vh;
     opacity:0; pointer-events:none;
     transform:translateY(18px) scale(0.98);
     transition:opacity 0.9s ease, transform 0.9s ease;
@@ -281,11 +282,11 @@
   .corner-deco{
     position:fixed; z-index:1; opacity:0.55; pointer-events:none;
   }
-  .corner-deco.tl{ top:2.5vh; left:3vw; transform:rotate(-8deg); }
+  .corner-deco.tl{ top:calc(2.5vh + env(safe-area-inset-top)); left:3vw; transform:rotate(-8deg); }
   .corner-deco.br{ bottom:2.5vh; right:3vw; transform:rotate(172deg); }
 
   #soundToggle{
-    position:fixed; top:2.5vh; right:3vw; z-index:6;
+    position:fixed; top:calc(2.5vh + env(safe-area-inset-top)); right:3vw; z-index:6;
     width:38px; height:38px; border-radius:50%;
     border:1px solid var(--card-border);
     background:var(--card-bg);
@@ -317,7 +318,7 @@
   }
 
   @media (max-width:520px){
-    .scene{ padding:9vh 6vw 12vh; }
+    .scene{ padding:max(14vh, 104px) 6vw 12vh; }
   }
   @media (prefers-reduced-motion: reduce){
     *{ transition-duration:0.01ms !important; animation-duration:0.01ms !important; }
@@ -422,7 +423,7 @@ Kalo gitu sayang sekarang cerita sayang kenapaa, bolehhh ya sayang, ungkapin sem
   <div class="scene" id="scene-msg5" data-id="msg5">
     <div class="letter small">sayang ingat terus ya sayang, aku engga pernah punya niatan jahat ke kamu ya sayang sekalipun, dan aku selalu berusaha buktiin kalo kamu adalah satu satunya buat aku, aku sayang banget sama kamu, aku ga tega sama kamu sayang, semandiri dan sedewasa apapun kamu tapi buat aku kamu perempuan kecilku yang selalu aku pengen temeni dan aku dampingi, aku ga tega sayang lihat kamu kecapean, lihat kamu sedih, aku sedih banget lihat kamu sedihhh, aku sayangggg banget sama kamu yang, aku akan selalu memastikan ke kamu kalo aku ga aneh aneh di belakang kamu, aku selalu cerita ke kamu sesui keadaan yang sebenar benarnya tanpa rekayasa sedikitpun, kalo kamu ada sesuatu hal ceritain ke aku ya sayangggg, sayang apapun yang kamu rasakan dan mau diceritakan aku boleh banget sayang, libatkan aku di semua prosesmu ya sayang, aku seneng banget saat kamu ngelibatin  akuu pada semua hal, akan ku usahakan sesuatu itu, entah sessuai kemampuanku atau tidak, percayalah sayang laki laki pasti akan mengusahakan perempuannya sekuatnya dan memberikan 100% percayalah terkadang berapa % dari itu adalah diluar kemampuannya, aku bangga padamu yang aku bener bener bangga kamu bisa kuat sejauh ini ngehadapin semuanyaa, kamu jauh dari orang tua kamu mandiri kamu bisa ngelakuin semuanya aku baangga tapi inget sayang selagi ada aku disini aku akan dampingi kamu selalu dan ikut terus maju bareng sama kamu sayang kita hadapi semuanya bareng bareng berdua,oiya sayang sedikit sedikit belajar sabar dari aku ya sayang dan belajar mengurangi kata kata yang kurang baik diucapkan, maaf ya sayang aku cuma mau ngajak sayang buat tumbuh lebih baik lagi, okei sayangku, pasti bisa kok bub aku pasti bakalan dampingi kmu dan nuntun kamu kok bub sebagai laki laki yang baik, sayang sehat sehat terus ya cantikku, disaat dunia lagi jahat ke kamu aku disini bakalan jadi rumah buat kamu bersandar, jangan lupa berdoa ya sayang setiap sholat inget allah maha baik sayang, allah pasti punya alasan disetiap situasi tertentu, sekali lagi aku bangga punya perempuan yang hebat, sayang , makasih banyak ya sayanggg, sama aku terus ya sayangggg, sayang maafin aku ya atas respon typingnya yang tadii, jujur aku ga ada niatan apa apa sama sekali sayang sedikitpun, ga pernah punya niatan sama sekali, jujur aku ga punya niatan apa apa dan aku cuma itu ngechat panjang yang, jujur ga ada apa apa, itu orangnya juga tau kita soalnya ada di ig juga, sayang maafin ya aku salah, aku ga ada niatan apa apa sama sekali juga yang, ga akan pernah ada yang bisa menggantikan kamu satupun soalnya kamu perempuan terbaik yang pernah aku temui, makane tak jogo terus atiku sayang soale sayang puolll sama kamu sayanggggkuuu, kamu i pokok best lahhh.</div>
     <div class="letter small">sayang maafin aku ya yang rencanaku sementara ini meleset semua ga kaya dulu sayang, rencana kerja dan lain lain, maaf ya sayang kamu jadi kena imbasnyaa, maaf ya sayang atas kondisiku sekarang, tunggu sampai ekonomi diriku bagus lagi ya yang kaya dulu, dulu bagus banget karena fokusku cuma buat kerja aja jadi belum ada fokus kuliah juga sayang, maaf ya sayangku, aku janji kok lihaten kalo semua udah membaik dan bagus lihaten effort diriku yang sebenarnya kamu pasti bakalan kok hahahaha, tapi tunggu dulu yang aku tau semua ga gampang tapi diusahakan di tata ulang satu persatu lagi dan membuat rencana lagi, maafin ya kalau semua engga sesuai ekspeksatimu kalo boleh jujur ini juga ga sesuai sama ekspektasiku juga sayang karena ada di posisi ini, okei bub, aku sayang banget sama kamu bub bub, all in buat kamu bub, kalo aku punya energi 100% aku bakal kasih kamu 100% bukan 50% bahkan 99% pasti aku kasih semuanya energinya, okei sayangnya aku, kamu orang paling tercintaku</div>
-    <div class="letter small">sayang, maaf ya atas kesalahanku, aku harap sayang tidak membalas kesalahanku ya yang, ingat ya yang setiap sayang membuat kesalahan aku engga pernah punya niatan membalas kesalahannya sayang dan selalu ngeyakinin sayang kalo sayang bisa berubah, walau kadang jujur aku marah, nyesek but gapapa sayang aku percaya sama sayang, maafin aku ya atas kesalahanku ya yang aku salah banget sayang, maafin aku ya sayang, sekali lagi maafin ya sayang, ini aku lagi nemenin kamu lewat call hehe, makanan kesukaan sayang, strawberry, alpukat, nanas, buah pir, manggis, nangka, jambu kristal, jambu merah, kiwi, anggur, mangga, salak, jujur aku belum maem daripagi hehe, pagi tadi aja sedikit, hehe ga doyan gatau, aku sayang banget sama kamu, jujur yang tak bilang tadi di telpon beneran, aku pernah kehujanan waktu aku ke solo di deket sarangan sampai tw, tapi aku ga berhenti hehe aku jalan terus sampe bajuku kering di jalan hehe, maaf ya ga mau cerita aku takut kalo aku cerita nanti kamu ngelarang aku kesana, maafin ya sayangku, makasih ya sayang hehe, btw ini pas kamu bilang matikan matikan ae, nypo see, aku pengen telpon mbe pacarku yang cantikkk wleeee, aku selesai ngerjain ini, Madiun, 17.22, 6 September 2026 --- SELAMAT YAA UDAH MENYELESAIKAN TRIP PERTAMA KAMU SAYANG, MANDI DULU AKU</div>
+    <div class="letter small">sayang, maaf ya atas kesalahanku, aku harap sayang tidak membalas kesalahanku ya yang, ingat ya yang setiap sayang membuat kesalahan aku engga pernah punya niatan membalas kesalahannya sayang dan selalu ngeyakinin sayang kalo sayang bisa berubah, walau kadang jujur aku marah, nyesek but gapapa sayang aku percaya sama sayang, maafin aku ya atas kesalahanku ya yang aku salah banget sayang, maafin aku ya sayang, sekali lagi maafin ya sayang, ini aku lagi nemenin kamu lewat call hehe, makanan kesukaan sayang, strawberry, alpukat, nanas, buah pir, manggis, nangka, jambu kristal, jambu merah, kiwi, anggur, mangga, salak, jujur aku belum maem daripagi hehe, pagi tadi aja sedikit, hehe ga doyan gatau, aku sayang banget sama kamu, jujur yang tak bilang tadi di telpon beneran, aku pernah kehujanan waktu aku ke solo di deket sarangan sampai tw, tapi aku ga berhenti hehe aku jalan terus sampe bajuku kering di jalan hehe, maaf ya ga mau cerita aku takut kalo aku cerita nanti kamu ngelarang aku kesana, maafin ya sayangku, makasih ya sayang hehe, btw ini pas kamu bilang matikan matikan ae, nypo see, aku pengen telpon mbe pacarku yang cantikkk wleeee, aku selesai ngerjain ini, Madiun, 17.22, 6 September 2026 </div>
     <div class="continue-link show" data-next="final">scroll ke bawah ya sayang</div>
   </div>
 
